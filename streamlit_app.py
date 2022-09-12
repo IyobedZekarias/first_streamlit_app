@@ -60,7 +60,7 @@ if streamlit.button('Add Your Own Fruit'):
     fruit_choice = streamlit.text_input('What fruit would you like to add', 'jackfruit')
     if not fruit_choice: 
       streamlit.error('Please enter fruit to add')
-    else: 
+    else:
       addFruit(fruit_choice)
       my_data_rows = get_fruitLoadList()
       streamlit.header("Data from Fruit Load List")
