@@ -4,6 +4,8 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+
 def get_fruityvice(fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
   return pandas.json_normalize(fruityvice_response.json())
@@ -46,7 +48,6 @@ except URLError as e:
 
 
 if streamlit.button('Get Fruit Load List'):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruitLoadList()
   streamlit.header("Data from Fruit Load List")
   streamlit.dataframe(my_data_rows)
