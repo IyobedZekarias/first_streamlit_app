@@ -55,19 +55,23 @@ if streamlit.button('Get Fruit Load List'):
   streamlit.header("Data from Fruit Load List")
   streamlit.dataframe(my_data_rows)
   
+
+fruit_choice = streamlit.text_input('What fruit would you like to add')
+  
 if streamlit.button('Add Your Own Fruit'):
-  try: 
-    fruit_choice = streamlit.text_input('What fruit would you like to add', 'jackfruit')
-    if not fruit_choice: 
-      streamlit.error('Please enter fruit to add')
-    else:
-      addFruit(fruit_choice)
-      my_data_rows = get_fruitLoadList()
-      streamlit.header("Data from Fruit Load List")
-      streamlit.dataframe(my_data_rows)
-      streamlit.write('Thanks for adding ', fruit_choice)
-  except URLError as e:
-    streamlit.error()
+  addFruit(fruit_choice)
+  ##try: 
+    ##fruit_choice = streamlit.text_input('What fruit would you like to add', 'jackfruit')
+    ##if not fruit_choice: 
+      ##streamlit.error('Please enter fruit to add')
+    ##else:
+      ##addFruit(fruit_choice)
+      ##my_data_rows = get_fruitLoadList()
+      ##streamlit.header("Data from Fruit Load List")
+      ##streamlit.dataframe(my_data_rows)
+      ##streamlit.write('Thanks for adding ', fruit_choice)
+  ##except URLError as e:
+    ##streamlit.error()
     
     
       
